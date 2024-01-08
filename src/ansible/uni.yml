@@ -1,0 +1,5 @@
+- hosts: localhost
+  vars_files:
+    - vars/Export.yml
+  roles:
+  - NFS client

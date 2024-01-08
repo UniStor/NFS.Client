@@ -1,0 +1,3 @@
+dependencies:
+- NFS client/install
+- NFS client/mount

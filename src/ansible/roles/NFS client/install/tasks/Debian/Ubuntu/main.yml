@@ -1,0 +1,6 @@
+---
+- name: Install NFS client
+  ansible.builtin.apt:
+    pkg:
+    - nfs-common
+  become: true
