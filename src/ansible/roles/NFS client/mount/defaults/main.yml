@@ -1,0 +1,3 @@
+debian_mountpoint: "/media/{{ ansible_env.USER }}/{{ volume_name }}"
+
+redhat_mountpoint: "/run/media/{{ ansible_env.USER }}/{{ volume_name }}"

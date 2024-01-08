@@ -1,0 +1,26 @@
+---
+# https://www.server-world.info/en/note?os=Fedora_37&p=nfs&f=2
+
+- name: Domain in idmapd.conf
+  ansible.builtin.lineinfile:
+    path: /etc/idmapd.conf
+    regexp: '^#Domain = local.domain.edu'
+    line: "Domain = {{ nfs_server }}"
+  become: true
+
+- name: Create mount directory
+  ansible.builtin.file:
+    path: "{{ redhat_mountpoint }}"
+    state: directory
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ ansible_env.USER }}"
+    mode: '0755'
+  become: true
+
+- name: Mount NFS volume
+  ansible.posix.mount:
+    src: "{{ nfs_server }}:{{ export_path }}"
+    path: "{{ redhat_mountpoint }}"
+    opts: rw,sync,hard
+    state: mounted
+    fstype: nfs

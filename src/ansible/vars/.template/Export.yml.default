@@ -1,3 +1,4 @@
+# todo: Replace with etcd
+nfs_server: 192.168.1.110
 volume_name: stor0
-mountpoint: "/media/{{ ansible_env.USER }}/{{ volume_name }}"
-export: todo
+export_path: "/media/me/{{ volume_name }}"

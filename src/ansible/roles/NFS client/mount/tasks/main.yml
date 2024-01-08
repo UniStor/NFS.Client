@@ -1,1 +1,2 @@
-# https://ubuntu.com/server/docs/service-nfs
+- name: OS specific
+  include_tasks: "{{ ansible_os_family }}/main.yml"
