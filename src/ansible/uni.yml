@@ -1,4 +1,4 @@
-- hosts: localhost, node
+- hosts: localhost #, node
   vars_files:
     - vars/Export.yml
   roles:
